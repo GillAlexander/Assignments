@@ -30,6 +30,6 @@ void count(float n)
       
       for(float i = 0; i < 156*4; i++){
         
-      point((width/2 + cos((i * TWO_PI / n) * 100 )), (height/2 + sin((i * TWO_PI / n) * 100 )));
-      //frame++; 
+      point((width/2 + sin( i * TWO_PI / n) * 100 ), (height/2 + cos( i * TWO_PI / n) * 100 ));
+      frame++; 
      }}
