@@ -1,8 +1,25 @@
-public class car{
+public class Car{
   
-  public car(){
+  int rectX;
+  int rectY;
+  PVector carPosition;
+  
+  public Car(float x, float y){
+    carPosition = new PVector(x, y);
+    
+    
+  }
+  
+   public Car(){
+    
+    
+    
+  }
+  
+  void draw(){
+  
     fill(224, 134, 142);
-  rect(width/2, height/2, 25, 45);
+    rect(rectX, rectY, 25, 45);
   }
   
   

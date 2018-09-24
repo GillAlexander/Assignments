@@ -36,10 +36,9 @@ public class ball{
      
    }
    
-  else if (position.y < 0 ){
+  if (position.y < 0 ){
       position.y = 5;
       velocity.y = -velocity.y;
-   
   } 
 }
  
@@ -53,8 +52,8 @@ public class ball{
     stroke(100, 200, 100);
     strokeWeight(50);
     frameRate(60);
-  
-      
+    
+    newBall = new ball(100, 100, 500, 500);
     newBall = new ball(100, 100, 500, 500);
     
   }
@@ -66,17 +65,8 @@ public class ball{
     currentTime = millis();
     frameTime = (currentTime - time) * 0.001f;
     newBall.createBall();
+    newBall.createBall();
     
     
     time = currentTime;
-  }
-  
-  
-  
-  
-  
-  
-  void changeDirection(){
-   
- 
   }
