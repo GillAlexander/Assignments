@@ -8,8 +8,8 @@ public class Manager{
      
      for(int i = 0; i < humans.length; ++i){
         humans[i] = new Human();
-        if(i == 99) {
-          humans[100] = new Zombie();
+        if(i == 19) {
+          humans[i] = new Zombie();
         }
      }
   }
