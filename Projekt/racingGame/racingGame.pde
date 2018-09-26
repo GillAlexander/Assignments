@@ -5,7 +5,7 @@ ObjectGenerator newObject;
   boolean left = false;
   boolean right = false; 
 void setup () {
-  size(1000, 800);
+  size(800, 1000);
   frameRate(60);
   
   newCar = new Car(500, 500);
