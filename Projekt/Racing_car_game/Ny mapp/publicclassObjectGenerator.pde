@@ -1,0 +1,23 @@
+public class ObjectGenerator{
+  PVector object;
+  ObjectArray[] spawnObjects;
+  public ObjectGenerator(int numberOfObjects){
+    
+    spawnObjects = new ObjectArray[numberOfObjects];
+
+    for (int i = 0; i < spawnObjects.length; ++i) {
+      spawnObjects[i]  = new ObjectArray();
+    }
+  }
+  
+  
+  public void draw(){
+    
+    for (int i = 0; i < spawnObjects.length; ++i) {
+      spawnObjects[i].draw();
+    }
+
+  }
+
+  
+}
