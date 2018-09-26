@@ -4,7 +4,7 @@ public class ObjectArray{
   public ObjectArray(){
     objectPosition = new PVector(200, 200);
 
-   objectPosition.x = random(0,width);
+     objectPosition.x = random(0,width);
      objectPosition.y = random(0, height);
   }
 
@@ -12,7 +12,7 @@ public class ObjectArray{
 
     fill(120, 120, 240);
        rect(objectPosition.x, objectPosition.y, 50, 50); 
-       objectPosition.y+=random(1.0, 2.0);
+       objectPosition.y+=(2);
        
    objectCantEscapeTheScreen();
   }
