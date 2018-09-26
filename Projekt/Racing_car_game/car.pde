@@ -34,6 +34,7 @@ public class Car{
     carCantEscapeTheScreen();
     keyPressed();
     keyReleased();
+    updatePositions();
   } 
   
   

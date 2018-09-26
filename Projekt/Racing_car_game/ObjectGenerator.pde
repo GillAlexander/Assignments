@@ -1,22 +1,23 @@
 public class ObjectGenerator{
   PVector object;
-  public ObjectGenerator(int xPos, int yPos){
-    object = new PVector(xPos, yPos);
+  ObjectArray[] spawnObjects;
+  public ObjectGenerator(int numberOfObjects){
     
+    spawnObjects = new ObjectArray[numberOfObjects];
+
+    for (int i = 0; i < spawnObjects.length; ++i) {
+      spawnObjects[i]  = new ObjectArray();
+    }
   }
   
   
-  void draw(){
-    fill(120, 120, 240);
-   rect(object.x, object.y, 50, 50); 
-   object.y+=random(1.0, 2.0);
-   objectCantEscapeTheScreen();
+  public void draw(){
+    
+    for (int i = 0; i < spawnObjects.length; ++i) {
+      spawnObjects[i].draw();
+    }
+
   }
 
-  void objectCantEscapeTheScreen(){
   
-    if(object.y > height){
-        object.y = -20;
-        object.x = random(width);
-    }}
 }

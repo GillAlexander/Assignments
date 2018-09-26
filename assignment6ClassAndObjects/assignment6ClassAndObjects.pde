@@ -3,7 +3,7 @@ Manager humanManager;
 void setup(){
   size(1200, 900);
   humanManager = new Manager(20);
-  frameRate(20);
+  frameRate(40);
 }
 
 void draw(){
