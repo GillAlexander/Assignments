@@ -12,11 +12,8 @@ void setup () {
   
   newCar = new Car(500, 500);
   newObject = new ObjectGenerator(50, 750);
-  
   newObject1 = new ObjectGenerator(500, 300);
-  
   newObject2 = new ObjectGenerator(400, 60);
-  
   newObject3 = new ObjectGenerator(700, 520);
   newObject4 = new ObjectGenerator(900, 725);
   newObject5 = new ObjectGenerator(465, 270);
@@ -35,6 +32,10 @@ void draw(){
   newObject3.draw();
   newObject4.draw();
   newObject5.draw();
+  
+  newCar.keyPressed();
+  newCar.keyReleased();
+  
   newCar.updatePositions();
   
 }

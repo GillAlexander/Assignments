@@ -31,10 +31,9 @@ public class Car{
    //    velocity.add(0, 0);
      
    //}
-   
- 
-  
     carCantEscapeTheScreen();
+    keyPressed();
+    keyReleased();
   } 
   
   
@@ -49,7 +48,6 @@ public class Car{
     case UP:
       up = true;
     break;
-    
     case LEFT: 
       left = true;
     break;
@@ -70,7 +68,6 @@ public class Car{
     case UP:
       up = false;
     break;
-    
     case LEFT: 
       left = false;
     break;
@@ -84,16 +81,16 @@ public class Car{
   }
   
   void updatePositions() {  
-       if(up){  
+       if(up == true){  
          velocity.y = velocity.y + 1; 
        }  
-       if(down){  
+       if(down == true){  
           velocity.y = velocity.y - 1;  
        }  
-       if(left){  
+       if(left == true){  
          velocity.x = velocity.x + 1;  
        }  
-       if(right){  
+       if(right == true){  
           velocity.x = velocity.x - 1;  
        }
 }  
