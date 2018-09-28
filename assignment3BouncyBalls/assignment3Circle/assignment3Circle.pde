@@ -31,5 +31,12 @@ void count(float n)
       for(float i = 0; i < 156*4; i++){
         
       point((width/2 + sin( i * TWO_PI / n) * 100 ), (height/2 + cos( i * TWO_PI / n) * 100 ));
+      
+}
       frame++; 
-     }}
+      for (int j = 0; j < 20; j++) {
+      rotate(0.5);
+      scale(1.00);
+      line(500, -550, 500, 550);
+    
+   }}

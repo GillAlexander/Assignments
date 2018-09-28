@@ -18,7 +18,7 @@ Manager humanManager;
 
 public void setup(){
   
-  humanManager = new Manager(20);
+  humanManager = new Manager(30);
   frameRate(40);
 }
 
@@ -75,11 +75,18 @@ public class Human{
     position.add(velocity); 
     
     
-    if(position.x > width || position.x < 0){
-        velocity.x = -velocity.x;
+    if(position.x > width){
+        position.x = 0;
     }
-    if(position.y > height || position.y < 0){
-        velocity.y = -velocity.y;
+    if (position.x < 0) {
+      position.x += width;
+    }
+
+    if(position.y > height){
+        position.y = 0;
+    }
+    if (position.y < 0) {
+      position.y += height;
     }
   }
   
@@ -99,8 +106,8 @@ public class Manager{
      
      for(int i = 0; i < humans.length; ++i){
         humans[i] = new Human();
-        if(i == 19) {
-          humans[i] = new Zombie();
+        if(i == 20) {
+          humans[20] = new Zombie();
         }
      }
   }
@@ -111,10 +118,9 @@ public class Manager{
       
       for(int j = i+1; j < humans.length; ++j){
         
-        if(humans[i].size == 0 || humans[j].size == 0){
+        if(humans[j] instanceof Zombie && humans[i] instanceof Zombie){
           continue;
         }
-       
        
        boolean hasCollided = roundCollision(humans[i].position.x,
                                             humans[i].position.y,
@@ -126,11 +132,19 @@ public class Manager{
                                             
                                             
         if (hasCollided) {
-          humans[i] = new Zombie(humans[i].position.x, humans[i].position.y);
-          humans[j] = new Zombie(humans[j].position.x, humans[j].position.y);
           
- 
-    humans[j].update();
+          if (humans[i] instanceof Zombie) {
+            humans[j] = new Zombie(humans[j].position.x, humans[j].position.y);
+          }
+          else if (humans[j] instanceof Zombie) {
+            humans[i] = new Zombie(humans[i].position.x, humans[i].position.y);
+          }
+
+          
+          // humans[i].size = 0;
+          // humans[j].size = 0;
+
+          humans[j].update();
         }
       }
     
@@ -188,7 +202,7 @@ public class Zombie extends Human {
   public void draw(){
     
     fill(160, 225, 0);
-    ellipse(position.x - size/2, position.y - size/2, 75, 75);
+    ellipse(position.x - size/2, position.y - size/2, size, size);
     
   }
   

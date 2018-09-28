@@ -2,7 +2,7 @@ Manager humanManager;
 
 void setup(){
   size(1200, 900);
-  humanManager = new Manager(20);
+  humanManager = new Manager(30);
   frameRate(40);
 }
 

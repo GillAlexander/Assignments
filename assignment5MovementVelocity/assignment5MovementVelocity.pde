@@ -8,7 +8,7 @@ void setup(){
  size(500, 400);
  stroke(100, 200, 100);
  strokeWeight(50);
- frameRate(15000);
+ frameRate(10);
  
  position.x = 50;
  position.y = 50;
@@ -49,7 +49,7 @@ void changeDirection(){
     velocity.x = -velocity.x;
    
    if (position.x > width){
-      position.x = width -1;
+      position.x = width -2;
    }
 }
 
@@ -58,7 +58,7 @@ void changeDirection(){
       velocity.y = velocity.y * 0.9f;
       
     if (position.y > height){
-      position.y = height -1;
+      position.y = height -2;
     }  
 }
   

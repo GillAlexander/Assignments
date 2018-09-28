@@ -22,12 +22,13 @@ ObjectGenerator newObject;
   boolean right = false; 
   boolean moreCarSpeed = false;
   boolean lessCarSpeed = false;
-public void setup () {
+  boolean pause = false;
+  public void setup () {
   
   frameRate(60);
   
   newCar = new Car(500, 500);
-  newObject = new ObjectGenerator(40);
+  newObject = new ObjectGenerator(5);
   
 }
 
@@ -38,7 +39,12 @@ public void draw(){
   newCar.draw();
   newObject.draw();
   
-  
+  if (newCar.velocity.y == 0) {
+    pause = true;
+  }
+  else{
+    pause = false;
+  }
   
   newCar.updatePositions();
 }
@@ -60,10 +66,13 @@ public void draw(){
         right = true;
       }
       if (key == 'o') {
-        car.velocity.x = 10;
+        moreCarSpeed = true;
       }
-      if (key == 'o') {
-        
+      if (key == 'l') {
+        lessCarSpeed = true;
+      }
+      if (key == 'p') {
+        pause = true;
       }
    }
 }
@@ -81,6 +90,15 @@ public void keyReleased() {
       }
       if (key == 'd') {
         right = false;
+      }
+      if (key == 'o') {
+        moreCarSpeed = false;
+      }
+      if (key == 'l') {
+        lessCarSpeed = false;
+      }
+      if (key == 'p') {
+        pause = false;
       }
    }
 public class Car{
@@ -107,16 +125,22 @@ public class Car{
 
   public void updatePositions() {  
        if(up == true){  
-         carPosition.y = carPosition.y - 10; 
+         carPosition.y = carPosition.y - 1; 
        }  
        if(down == true){  
-          carPosition.y = carPosition.y + 10;  
+          carPosition.y = carPosition.y + 1;  
        }  
        if(left == true){  
-         carPosition.x = carPosition.x - 10;  
+         carPosition.x = carPosition.x - 1;  
        }  
        if(right == true){  
-          carPosition.x = carPosition.x + 10;  
+          carPosition.x = carPosition.x + 1;  
+       }
+       if (moreCarSpeed) {
+         velocity.y =- 1;
+       }
+       if (moreCarSpeed == false) {
+         velocity.y = 0;
        }
 }  
   
@@ -139,7 +163,7 @@ public class Car{
   }
 }
 public class ObjectArray{
-
+  int objectVelocity = 1;
   PVector objectPosition;
   public ObjectArray(){
     objectPosition = new PVector(200, 200);
@@ -151,10 +175,12 @@ public class ObjectArray{
   public void draw(){
 
     fill(120, 120, 240);
+
+       objectPosition.y+=(objectVelocity);
        rect(objectPosition.x, objectPosition.y, 50, 50); 
-       objectPosition.y+=(2);
        
    objectCantEscapeTheScreen();
+   ifCarStopsSoDoesTheWorld();
   }
 
 public void objectCantEscapeTheScreen(){
@@ -163,6 +189,15 @@ public void objectCantEscapeTheScreen(){
         objectPosition.y = -20;
         objectPosition.x = random(width);
     }}
+
+    public void ifCarStopsSoDoesTheWorld(){
+      if (pause == true) {
+         objectVelocity = 0;
+      }
+      if (pause == false) {
+        objectVelocity = 1;
+      }
+    }
 }
 public class ObjectGenerator{
   PVector object;
@@ -184,7 +219,9 @@ public class ObjectGenerator{
     }
 
   }
-
+// loopar igenom alla object
+//när bilens velocity = 0 == pause blir true
+//
   
 }
   public void settings() {  size(800, 1000); }

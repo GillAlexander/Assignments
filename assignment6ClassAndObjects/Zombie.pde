@@ -22,7 +22,7 @@ public class Zombie extends Human {
   void draw(){
     
     fill(160, 225, 0);
-    ellipse(position.x - size/2, position.y - size/2, 75, 75);
+    ellipse(position.x - size/2, position.y - size/2, size, size);
     
   }
   

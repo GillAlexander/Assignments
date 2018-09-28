@@ -1,5 +1,5 @@
 public class ObjectArray{
-
+  int objectVelocity = 1;
   PVector objectPosition;
   public ObjectArray(){
     objectPosition = new PVector(200, 200);
@@ -11,10 +11,12 @@ public class ObjectArray{
   void draw(){
 
     fill(120, 120, 240);
+
+       objectPosition.y+=(objectVelocity);
        rect(objectPosition.x, objectPosition.y, 50, 50); 
-       objectPosition.y+=(2);
        
    objectCantEscapeTheScreen();
+   ifCarStopsSoDoesTheWorld();
   }
 
 void objectCantEscapeTheScreen(){
@@ -23,4 +25,13 @@ void objectCantEscapeTheScreen(){
         objectPosition.y = -20;
         objectPosition.x = random(width);
     }}
+
+    void ifCarStopsSoDoesTheWorld(){
+      if (pause == true) {
+         objectVelocity = 0;
+      }
+      if (pause == false) {
+        objectVelocity = 1;
+      }
+    }
 }

@@ -8,8 +8,8 @@ public class Manager{
      
      for(int i = 0; i < humans.length; ++i){
         humans[i] = new Human();
-        if(i == 19) {
-          humans[i] = new Zombie();
+        if(i == 20) {
+          humans[20] = new Zombie();
         }
      }
   }
@@ -20,10 +20,9 @@ public class Manager{
       
       for(int j = i+1; j < humans.length; ++j){
         
-        if(humans[i].size == 0 || humans[j].size == 0){
+        if(humans[j] instanceof Zombie && humans[i] instanceof Zombie){
           continue;
         }
-       
        
        boolean hasCollided = roundCollision(humans[i].position.x,
                                             humans[i].position.y,
@@ -35,11 +34,19 @@ public class Manager{
                                             
                                             
         if (hasCollided) {
-          humans[i] = new Zombie(humans[i].position.x, humans[i].position.y);
-          humans[j] = new Zombie(humans[j].position.x, humans[j].position.y);
           
- 
-    humans[j].update();
+          if (humans[i] instanceof Zombie) {
+            humans[j] = new Zombie(humans[j].position.x, humans[j].position.y);
+          }
+          else if (humans[j] instanceof Zombie) {
+            humans[i] = new Zombie(humans[i].position.x, humans[i].position.y);
+          }
+
+          
+          // humans[i].size = 0;
+          // humans[j].size = 0;
+
+          humans[j].update();
         }
       }
     

@@ -26,11 +26,18 @@ public class Human{
     position.add(velocity); 
     
     
-    if(position.x > width || position.x < 0){
-        velocity.x = -velocity.x;
+    if(position.x > width){
+        position.x = 0;
     }
-    if(position.y > height || position.y < 0){
-        velocity.y = -velocity.y;
+    if (position.x < 0) {
+      position.x += width;
+    }
+
+    if(position.y > height){
+        position.y = 0;
+    }
+    if (position.y < 0) {
+      position.y += height;
     }
   }
   

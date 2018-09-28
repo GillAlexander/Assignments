@@ -46,7 +46,8 @@ public class ball{
   
 }
   ball newBall;
-  
+  ball newBall2;
+  ball newBall3;
   void setup(){
     size(600, 400);
     stroke(100, 200, 100);
@@ -54,7 +55,8 @@ public class ball{
     frameRate(60);
     
     newBall = new ball(100, 100, 500, 500);
-    newBall = new ball(100, 100, 500, 500);
+    newBall2 = new ball(420, 80, 500, 500);
+    newBall3 = new ball(280, 700, 500, 500);
     
   }
   float time;
@@ -65,7 +67,8 @@ public class ball{
     currentTime = millis();
     frameTime = (currentTime - time) * 0.001f;
     newBall.createBall();
-    newBall.createBall();
+    newBall2.createBall();
+    newBall3.createBall();
     
     
     time = currentTime;

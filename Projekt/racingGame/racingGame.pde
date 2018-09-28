@@ -6,12 +6,13 @@ ObjectGenerator newObject;
   boolean right = false; 
   boolean moreCarSpeed = false;
   boolean lessCarSpeed = false;
-void setup () {
+  boolean pause = false;
+  void setup () {
   size(800, 1000);
   frameRate(60);
   
   newCar = new Car(500, 500);
-  newObject = new ObjectGenerator(40);
+  newObject = new ObjectGenerator(5);
   
 }
 
@@ -22,7 +23,12 @@ void draw(){
   newCar.draw();
   newObject.draw();
   
-  
+  if (newCar.velocity.y == 0) {
+    pause = true;
+  }
+  else{
+    pause = false;
+  }
   
   newCar.updatePositions();
 }
@@ -44,10 +50,13 @@ void draw(){
         right = true;
       }
       if (key == 'o') {
-        car.velocity.x = 10;
+        moreCarSpeed = true;
       }
-      if (key == 'o') {
-        
+      if (key == 'l') {
+        lessCarSpeed = true;
+      }
+      if (key == 'p') {
+        pause = true;
       }
    }
 }
@@ -65,5 +74,14 @@ void keyReleased() {
       }
       if (key == 'd') {
         right = false;
+      }
+      if (key == 'o') {
+        moreCarSpeed = false;
+      }
+      if (key == 'l') {
+        lessCarSpeed = false;
+      }
+      if (key == 'p') {
+        pause = false;
       }
    }
