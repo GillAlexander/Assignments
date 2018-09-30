@@ -28,7 +28,7 @@ ObjectGenerator newObject;
   frameRate(60);
   
   newCar = new Car(500, 500);
-  newObject = new ObjectGenerator(5);
+  newObject = new ObjectGenerator(2);
   
 }
 
@@ -46,7 +46,7 @@ public void draw(){
     pause = false;
   }
   
-  newCar.updatePositions();
+  
 }
 
   public void keyPressed() {
@@ -56,11 +56,11 @@ public void draw(){
         up = true;
         println(up);
       }
-      if (key == 'a' ) {
-        left = true;
-      }
       if (key == 's' ) {
         down = true;
+      }
+      if (key == 'a' ) {
+        left = true;
       }
       if (key == 'd') {
         right = true;
@@ -119,25 +119,28 @@ public class Car{
     fill(224, 134, 142);
     rect(carPosition.x, carPosition.y, 25, 45);
     carPosition.add(velocity);
-    
+    updatePositions();
     carCantEscapeTheScreen();
   } 
 
   public void updatePositions() {  
-       if(up == true){  
-         carPosition.y = carPosition.y - 1; 
-       }  
+       // if(up == true){  
+       //   carPosition.y = carPosition.y - 1; 
+       // }  
        if(down == true){  
           carPosition.y = carPosition.y + 1;  
        }  
-       if(left == true){  
-         carPosition.x = carPosition.x - 1;  
-       }  
-       if(right == true){  
-          carPosition.x = carPosition.x + 1;  
-       }
+       
+       
        if (moreCarSpeed) {
          velocity.y =- 1;
+
+            if(left == true){  
+              carPosition.x = carPosition.x - 2;  
+             }  
+             if(right == true){  
+              carPosition.x = carPosition.x + 2;  
+             }
        }
        if (moreCarSpeed == false) {
          velocity.y = 0;
