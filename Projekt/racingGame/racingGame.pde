@@ -13,6 +13,7 @@ ObjectGenerator newObject;
   
   newCar = new Car(500, 500);
   newObject = new ObjectGenerator(5);
+  rectMode(CENTER);
   
 }
 
