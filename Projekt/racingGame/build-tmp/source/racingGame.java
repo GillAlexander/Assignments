@@ -37,6 +37,7 @@ ObjectGenerator newObject;
 }
 
 
+
 public void draw(){
   background(78, 160, 0);
   newCar.draw();
@@ -113,12 +114,9 @@ public class Car{
   float speed = 1;
 
 <<<<<<< HEAD
-<<<<<<< HEAD
   int carWidth = 25;
   int carHeight = 45;
 
-=======
->>>>>>> parent of d8a762a... musfuck
 =======
 >>>>>>> parent of d8a762a... musfuck
   public Car(float x, float y){
