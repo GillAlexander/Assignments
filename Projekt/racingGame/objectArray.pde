@@ -1,8 +1,6 @@
 public class ObjectArray{
   int objectVelocity = 1;
   PVector objectPosition;
-  float rectWidth = 50;
-  float rectHeight = 100;
   public ObjectArray(){
     objectPosition = new PVector(200, 200);
 
@@ -11,19 +9,6 @@ public class ObjectArray{
   }
 
   void draw(){
-if (mouseX > objectPosition.x && mouseX < objectPosition.x + rectWidth && mouseY > objectPosition.y && mouseY < objectPosition.y + rectHeight) {
-    fill(255, 0, 0);
-  } 
-  else {
-    fill(0, 255, 0);
-  }
-  
-  rect(objectPosition.x, objectPosition.y, rectWidth, rectHeight);
-
-
-
-
-
 
     fill(120, 120, 240);
 

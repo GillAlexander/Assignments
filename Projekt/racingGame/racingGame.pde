@@ -22,7 +22,6 @@ ObjectGenerator newObject;
 
 
 
-
 void draw(){
   background(78, 160, 0);
   newCar.draw();
@@ -35,13 +34,10 @@ void draw(){
     pause = false;
   }
   
+  
 }
 
-
-
-  
-
-void keyPressed() {
+  void keyPressed() {
   
     if (keyPressed) {
       if (key == 'w') {

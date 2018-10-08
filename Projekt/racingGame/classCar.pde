@@ -6,9 +6,12 @@ public class Car{
   PVector velocity;
   float speed = 1;
 
+<<<<<<< HEAD
   int carWidth = 25;
   int carHeight = 45;
 
+=======
+>>>>>>> parent of d8a762a... musfuck
   public Car(float x, float y){
     carPosition = new PVector(x, y);
     velocity = new PVector(0, 0);
@@ -73,7 +76,7 @@ public class Car{
     if (carPosition.x < carWidth/2) {
       carPosition.x = carWidth/2;
     }
-    
+
     if(carPosition.y > 965){
         carPosition.y = 965;
     }
