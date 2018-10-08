@@ -63,13 +63,7 @@ public class Human{
      velocity.y = random(-5, 5);
   }
   
-  public Human(float x, float y){
-     position = new PVector(x, y);
-     
-     velocity  = new PVector();
-     velocity.x = random(-12, 12);
-     velocity.y = random(-12, 12);
-  }
+ 
 
   public void update(){
     position.add(velocity); 

@@ -17,25 +17,43 @@ public class Car{
     fill(224, 134, 142);
     rect(carPosition.x, carPosition.y, carWidth, carHeight);
     carPosition.add(velocity);
-    
+    updatePositions();
     carCantEscapeTheScreen();
   } 
 
   void updatePositions() {  
+<<<<<<< HEAD
        if(up == true){  
          carPosition.y = carPosition.y - 10; 
        }  
+=======
+       // if(up == true){  
+       //   carPosition.y = carPosition.y - 1; 
+       // }  
+>>>>>>> 447e02c54ae2604852db7c5d957c4424d2572c1a
        if(down == true){  
           carPosition.y = carPosition.y + 10;  
        }  
+<<<<<<< HEAD
        if(left == true){  
          carPosition.x = carPosition.x - 10;  
        }  
        if(right == true){  
           carPosition.x = carPosition.x + 10;  
        }
+=======
+       
+       
+>>>>>>> 447e02c54ae2604852db7c5d957c4424d2572c1a
        if (moreCarSpeed) {
          velocity.y =- 1;
+
+            if(left == true){  
+              carPosition.x = carPosition.x - 2;  
+             }  
+             if(right == true){  
+              carPosition.x = carPosition.x + 2;  
+             }
        }
        if (moreCarSpeed == false) {
          velocity.y = 0;

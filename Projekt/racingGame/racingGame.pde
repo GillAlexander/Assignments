@@ -12,8 +12,12 @@ ObjectGenerator newObject;
   frameRate(60);
   
   newCar = new Car(500, 500);
+<<<<<<< HEAD
   newObject = new ObjectGenerator(5);
   rectMode(CENTER);
+=======
+  newObject = new ObjectGenerator(2);
+>>>>>>> 447e02c54ae2604852db7c5d957c4424d2572c1a
   
 }
 
@@ -31,7 +35,7 @@ void draw(){
     pause = false;
   }
   
-  newCar.updatePositions();
+  
 }
 
   void keyPressed() {
@@ -41,11 +45,11 @@ void draw(){
         up = true;
         println(up);
       }
-      if (key == 'a' ) {
-        left = true;
-      }
       if (key == 's' ) {
         down = true;
+      }
+      if (key == 'a' ) {
+        left = true;
       }
       if (key == 'd') {
         right = true;
