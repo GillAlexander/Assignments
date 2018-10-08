@@ -5,7 +5,7 @@ public class Car{
   PVector carPosition;
   PVector velocity;
   float speed = 1;
-
+  
   public Car(float x, float y){
     carPosition = new PVector(x, y);
     velocity = new PVector(0, 0);
@@ -52,7 +52,7 @@ public class Car{
     if (carPosition.x < 5) {
       carPosition.x = 5;
     }
-
+    
     if(carPosition.y > 965){
         carPosition.y = 965;
     }

@@ -34,6 +34,7 @@ ObjectGenerator newObject;
 
 
 
+
 public void draw(){
   background(78, 160, 0);
   newCar.draw();
@@ -46,10 +47,13 @@ public void draw(){
     pause = false;
   }
   
-  
 }
 
-  public void keyPressed() {
+
+
+  
+
+public void keyPressed() {
   
     if (keyPressed) {
       if (key == 'w') {
@@ -101,6 +105,34 @@ public void keyReleased() {
         pause = false;
       }
    }
+// class Collision{
+
+// 	public Colision(float x1, float y1, int size1, float x2, float y2, int size2){
+
+// 	}
+
+// 	public calculateCollision(float x1, float y1, int size1, float x2, float y2, int size2){
+// 		int maxDistance = size1 + size2;
+
+// 	}
+// }
+
+// // boolean squareCollision(float x1, float y1, int size1, float x2, float y2, int size2)
+// {
+//   int maxDistance = size1 + size2;
+//   if(abs(x1 - x2) > maxDistance || abs(y1 - y2) > maxDistance)
+//   {
+//     return false;
+//   }
+//   else if(dist(x1, y1, x2, y2) > maxDistance)
+//   {
+//     return false;
+//   }
+//   else
+//   {
+//    return true;
+//   }
+// }
 public class Car{
   
   int rectX;
@@ -108,7 +140,7 @@ public class Car{
   PVector carPosition;
   PVector velocity;
   float speed = 1;
-
+  
   public Car(float x, float y){
     carPosition = new PVector(x, y);
     velocity = new PVector(0, 0);
@@ -155,7 +187,7 @@ public class Car{
     if (carPosition.x < 5) {
       carPosition.x = 5;
     }
-
+    
     if(carPosition.y > 965){
         carPosition.y = 965;
     }
@@ -165,9 +197,38 @@ public class Car{
 
   }
 }
+class Manager{
+
+  PVector object;
+  ObjectArray[] spawnObjects;
+
+  
+  public Manager(int numberOfObjects){
+    
+    spawnObjects = new ObjectArray[numberOfObjects];
+
+    for (int i = 0; i < spawnObjects.length; ++i) {
+      spawnObjects[i]  = new ObjectArray();
+    }
+  }
+  
+  
+  public void draw(){
+    
+    for (int i = 0; i < spawnObjects.length; ++i) {
+      spawnObjects[i].draw();
+    }
+
+  }
+// loopar igenom alla object
+//när bilens velocity = 0 == pause blir true
+//
+}
 public class ObjectArray{
   int objectVelocity = 1;
   PVector objectPosition;
+  float rectWidth = 50;
+  float rectHeight = 100;
   public ObjectArray(){
     objectPosition = new PVector(200, 200);
 
@@ -176,6 +237,19 @@ public class ObjectArray{
   }
 
   public void draw(){
+if (mouseX > objectPosition.x && mouseX < objectPosition.x + rectWidth && mouseY > objectPosition.y && mouseY < objectPosition.y + rectHeight) {
+    fill(255, 0, 0);
+  } 
+  else {
+    fill(0, 255, 0);
+  }
+  
+  rect(objectPosition.x, objectPosition.y, rectWidth, rectHeight);
+
+
+
+
+
 
     fill(120, 120, 240);
 
