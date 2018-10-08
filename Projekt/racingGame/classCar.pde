@@ -5,12 +5,10 @@ public class Car{
   PVector carPosition;
   PVector velocity;
   float speed = 1;
-<<<<<<< HEAD
-  
-=======
+
   int carWidth = 25;
   int carHeight = 45;
->>>>>>> 12b5fc8bb831d9be81e110c866111000fd8f29ca
+
   public Car(float x, float y){
     carPosition = new PVector(x, y);
     velocity = new PVector(0, 0);
@@ -26,29 +24,29 @@ public class Car{
   } 
 
   void updatePositions() {  
-<<<<<<< HEAD
+
        if(up == true){  
          carPosition.y = carPosition.y - 10; 
        }  
-=======
+
        // if(up == true){  
        //   carPosition.y = carPosition.y - 1; 
        // }  
->>>>>>> 447e02c54ae2604852db7c5d957c4424d2572c1a
+
        if(down == true){  
           carPosition.y = carPosition.y + 10;  
        }  
-<<<<<<< HEAD
+
        if(left == true){  
          carPosition.x = carPosition.x - 10;  
        }  
        if(right == true){  
           carPosition.x = carPosition.x + 10;  
        }
-=======
+
        
        
->>>>>>> 447e02c54ae2604852db7c5d957c4424d2572c1a
+
        if (moreCarSpeed) {
          velocity.y =- 1;
 
