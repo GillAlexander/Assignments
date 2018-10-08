@@ -21,7 +21,6 @@ ObjectGenerator newObject;
 }
 
 
-
 void draw(){
   background(78, 160, 0);
   newCar.draw();
