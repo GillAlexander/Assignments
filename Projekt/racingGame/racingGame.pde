@@ -14,7 +14,12 @@ ObjectGenerator newObject;
   newCar = new Car(500, 500);
 
   newObject = new ObjectGenerator(5);
+<<<<<<< HEAD
   rectMode(CENTER);
+=======
+  
+}
+>>>>>>> parent of f42008a... aha
 
   newObject = new ObjectGenerator(2);
 

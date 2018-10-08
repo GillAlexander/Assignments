@@ -8,6 +8,7 @@ public class Car{
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   int carWidth = 25;
   int carHeight = 45;
 
@@ -15,6 +16,8 @@ public class Car{
 >>>>>>> parent of d8a762a... musfuck
 =======
 >>>>>>> parent of d8a762a... musfuck
+=======
+>>>>>>> parent of f42008a... aha
   public Car(float x, float y){
     carPosition = new PVector(x, y);
     velocity = new PVector(0, 0);
@@ -23,7 +26,7 @@ public class Car{
   
   void draw(){
     fill(224, 134, 142);
-    rect(carPosition.x, carPosition.y, carWidth, carHeight);
+    rect(carPosition.x, carPosition.y, 25, 45);
     carPosition.add(velocity);
     updatePositions();
     carCantEscapeTheScreen();
@@ -32,7 +35,7 @@ public class Car{
   void updatePositions() {  
 
        if(up == true){  
-         carPosition.y = carPosition.y - 10; 
+         carPosition.y = carPosition.y - 1; 
        }  
 
        // if(up == true){  
@@ -40,14 +43,14 @@ public class Car{
        // }  
 
        if(down == true){  
-          carPosition.y = carPosition.y + 10;  
+          carPosition.y = carPosition.y + 1;  
        }  
 
        if(left == true){  
-         carPosition.x = carPosition.x - 10;  
+         carPosition.x = carPosition.x - 1;  
        }  
        if(right == true){  
-          carPosition.x = carPosition.x + 10;  
+          carPosition.x = carPosition.x + 1;  
        }
 
        
@@ -70,14 +73,11 @@ public class Car{
   
   
   void carCantEscapeTheScreen(){
-  if(carPosition.x > width - carWidth/2){
-        carPosition.x = width - carWidth/2;
+  if(carPosition.x > 765){
+        carPosition.x = 765;
     }
-    // if(carPosition.x > 765 ){
-    //     carPosition.x = 765;
-    // } 
-    if (carPosition.x < carWidth/2) {
-      carPosition.x = carWidth/2;
+    if (carPosition.x < 5) {
+      carPosition.x = 5;
     }
 
     if(carPosition.y > 965){
