@@ -12,15 +12,11 @@ ObjectGenerator newObject;
   frameRate(60);
   
   newCar = new Car(500, 500);
-
   newObject = new ObjectGenerator(5);
   rectMode(CENTER);
 
-  newObject = new ObjectGenerator(2);
-
+  
 }
-
-
 
 void draw(){
   background(78, 160, 0);
@@ -33,8 +29,6 @@ void draw(){
   else{
     pause = false;
   }
-  
-  
 }
 
   void keyPressed() {

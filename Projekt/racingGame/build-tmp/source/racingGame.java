@@ -28,15 +28,11 @@ ObjectGenerator newObject;
   frameRate(60);
   
   newCar = new Car(500, 500);
-
   newObject = new ObjectGenerator(5);
   rectMode(CENTER);
 
-  newObject = new ObjectGenerator(2);
-
+  
 }
-
-
 
 public void draw(){
   background(78, 160, 0);
@@ -49,8 +45,6 @@ public void draw(){
   else{
     pause = false;
   }
-  
-  
 }
 
   public void keyPressed() {
@@ -112,13 +106,8 @@ public class Car{
   PVector carPosition;
   PVector velocity;
   float speed = 1;
-
-<<<<<<< HEAD
   int carWidth = 25;
   int carHeight = 45;
-
-=======
->>>>>>> parent of d8a762a... musfuck
   public Car(float x, float y){
     carPosition = new PVector(x, y);
     velocity = new PVector(0, 0);
@@ -134,29 +123,18 @@ public class Car{
   } 
 
   public void updatePositions() {  
-
        if(up == true){  
          carPosition.y = carPosition.y - 10; 
        }  
-
-       // if(up == true){  
-       //   carPosition.y = carPosition.y - 1; 
-       // }  
-
        if(down == true){  
           carPosition.y = carPosition.y + 10;  
        }  
-
        if(left == true){  
          carPosition.x = carPosition.x - 10;  
        }  
        if(right == true){  
           carPosition.x = carPosition.x + 10;  
        }
-
-       
-       
-
        if (moreCarSpeed) {
          velocity.y =- 1;
 
@@ -197,7 +175,7 @@ public class ObjectArray{
   int objectVelocity = 1;
   PVector objectPosition;
   public ObjectArray(){
-    objectPosition = new PVector(200, 200);
+    objectPosition = new PVector();
 
      objectPosition.x = random(0,width);
      objectPosition.y = random(0, height);
