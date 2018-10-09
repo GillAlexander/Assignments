@@ -2,7 +2,7 @@ public class ObjectArray{
   int objectVelocity = 1;
   PVector objectPosition;
   public ObjectArray(){
-    objectPosition = new PVector(200, 200);
+    objectPosition = new PVector();
 
      objectPosition.x = random(0,width);
      objectPosition.y = random(0, height);

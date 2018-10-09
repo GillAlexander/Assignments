@@ -20,6 +20,5 @@ public class ObjectGenerator{
   }
 // loopar igenom alla object
 //när bilens velocity = 0 == pause blir true
-//
   
 }
