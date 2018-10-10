@@ -5,6 +5,7 @@ public class GameObject{
 	float size;
 	float number;
 	boolean alive = false;
+	int livingNeighbours;
 	public GameObject (float x, float y, float size) {
 		this.x =x;
 		this.y = y;
