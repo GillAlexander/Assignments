@@ -5,8 +5,8 @@ int numberOfRows;
 int fillPercentage = 20;
 int number;
 void setup(){
-	size(500, 500);
-	frameRate(10);
+	size(1200, 1200);
+	frameRate(60);
 	
 	numberOfColumns = (int)Math.floor(width/cellSize);
 	numberOfRows = (int)Math.floor(height/cellSize);

@@ -22,7 +22,7 @@ int fillPercentage = 20;
 int number;
 public void setup(){
 	
-	frameRate(10);
+	frameRate(60);
 	
 	numberOfColumns = (int)Math.floor(width/cellSize);
 	numberOfRows = (int)Math.floor(height/cellSize);
@@ -166,7 +166,7 @@ public class GameObject{
 		
 	}
 }
-  public void settings() { 	size(500, 500); }
+  public void settings() { 	size(1200, 1200); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "game" };
     if (passedArgs != null) {
