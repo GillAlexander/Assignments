@@ -22,13 +22,13 @@ int fillPercentage = 20;
 int number;
 public void setup(){
 	
-	frameRate(60);
-	
+	frameRate(8);
+	//Delar upp skärmen i rader och kolumner beroende hur många pixlar cellSize är
 	numberOfColumns = (int)Math.floor(width/cellSize);
 	numberOfRows = (int)Math.floor(height/cellSize);
-
+	//Dubbel Array, rutsystem med gameObjects
 	cells = new GameObject[numberOfRows][numberOfColumns];
-	//Create our game object
+	//Skapa gameObject vid plats [y][x] med storlek cellSize
 	for (int y = 0; y < numberOfRows; ++y) {
 		for (int x = 0; x < numberOfColumns; ++x) {
 
@@ -41,9 +41,6 @@ public void setup(){
 			if (cells[y][x].alive == false) {
 				
 			}
-
-		
-				
 				// if ((cells[y-1][x-1]).y == inBounds) {fill(255, 90, 0);}
 				// if (cells[y-1][x].alive == false) {}
 				// if (cells[y-1][x+1].alive == false) {}
@@ -55,19 +52,7 @@ public void setup(){
 				// if (cells[y+1][x-1].alive == false) {}
 				// if (cells[y+1][x].alive == false) {}
 				// if (cells[y+1][x+1].alive == false) {}
-				
-				
-}
-			
-		}
-
-			// cells[1][1].alive = true;
-			// cells[1][2].alive = true;
-			// cells[2][1].alive = true;
-
-
-			
-	}
+}}}
 
 
 		
@@ -78,42 +63,27 @@ public void setup(){
 public void draw(){
 	background(0);
 
+	//Rita ut objekten ifall objektet är Alive
 	for (int y = 0; y < numberOfRows; ++y ) {
 		for (int x = 0; x < numberOfColumns; ++x ) {
 		cells[x][y].draw();
+
 	}
-}
+}	//Ta reda på hur många grannar som finns runt objektet levande och döda
 	for (int y = 0; y < numberOfRows; ++y ) {
 		for (int x = 0; x < numberOfColumns; ++x ) {
-		cells[x][y].livingNeighbours = checkNeighbours(x, y);
+		cells[x][y].checkNeighbours();
 	}
-}
-
-for (int y = 0; y < numberOfRows; ++y ) {
-		for (int x = 0; x < numberOfColumns; ++x ) {
-		cells[x][y].alive = isAlive(x, y);
-	}
-}
-
-	}
-//Räknar ut alla grannar levande och döda. hur många det finns.
-public int checkNeighbours(int x, int y){
-	int grannar = 0;
-	for (int i = -1; i <= 1; i++) {
-		if (x + i >= 0 && x + i < numberOfColumns) {
-			 for (int j = -1; j <= 1; j++) {
-		
-				if (y + j >= 0 && y + j < numberOfRows) {
-					if (cells[x+i][y+j].alive && !( i==0  &&  j==0 )){
-
-	           		grannar ++; 
-	            }
-			}
+}	//Uträtta spelreglerna, ta bort 
+	for (int y = 0; y < numberOfRows; ++y ) {
+			for (int x = 0; x < numberOfColumns; ++x ) {
+			cells[x][y].alive = isAlive(x, y);
 		}
 	}
-}
-	return grannar;
-}
+
+	}
+//Räknar ut alla grannar levande och döda. Hur många det finns.
+
 
 public boolean isAlive(int x, int y){
 	if (cells[x][y].livingNeighbours < 2) {
@@ -165,6 +135,34 @@ public class GameObject{
 		}
 		
 	}
+
+
+
+	public void checkNeighbours(){
+	float grannar = 0;
+	//
+	for (int i = -1; i <= 1; i++) {
+		//Kollar ifall objektet är innanför skärmen på X axeln
+		if (this.x + i >= 0 && this.x + i < numberOfColumns) {
+			//
+			 for (int j = -1; j <= 1; j++) {
+				//Kollar ifall objektet är innanför skärmen på Y axeln
+				if (this.y + j >= 0.0f && this.y + j < numberOfRows) {
+
+					if (cells[this.x+i][this.y+j].alive && !( i==0.0f  &&  j==0.0f )){
+
+	           		grannar ++; 
+	            }
+			}
+		}
+	}
+}
+	if (grannar == 2) {
+		// fill(random(0, 255), random(0, 255), random(0, 255));
+	}
+	
+	return grannar;
+}
 }
   public void settings() { 	size(1200, 1200); }
   static public void main(String[] passedArgs) {
