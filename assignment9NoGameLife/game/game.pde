@@ -4,9 +4,13 @@ int numberOfColumns;
 int numberOfRows;
 int fillPercentage = 20;
 int number;
+boolean pause = false;
+boolean p = false;
+
 void setup(){
-	size(1200, 1200);
-	frameRate(8);
+	size(600, 600);
+	frameRate(12);
+
 	//Delar upp skärmen i rader och kolumner beroende hur många pixlar cellSize är
 	numberOfColumns = (int)Math.floor(width/cellSize);
 	numberOfRows = (int)Math.floor(height/cellSize);
@@ -36,6 +40,7 @@ void setup(){
 				// if (cells[y+1][x-1].alive == false) {}
 				// if (cells[y+1][x].alive == false) {}
 				// if (cells[y+1][x+1].alive == false) {}
+
 }}}
 
 
@@ -46,7 +51,7 @@ void setup(){
 
 void draw(){
 	background(0);
-
+	
 	//Rita ut objekten ifall objektet är Alive
 	for (int y = 0; y < numberOfRows; ++y ) {
 		for (int x = 0; x < numberOfColumns; ++x ) {
@@ -64,8 +69,8 @@ void draw(){
 			cells[x][y].alive = isAlive(x, y);
 		}
 	}
-
-	}
+	
+}
 //Räknar ut alla grannar levande och döda. Hur många det finns.
 public int checkNeighbours(int x, int y){
 	int grannar = 0;
@@ -81,11 +86,11 @@ public int checkNeighbours(int x, int y){
 					if (cells[x+i][y+j].alive && !( i==0  &&  j==0 )){
 
 	           		grannar ++; 
-	            }
+					}
+				}
 			}
 		}
 	}
-}
 	if (grannar == 2) {
 		// fill(random(0, 255), random(0, 255), random(0, 255));
 	}
@@ -110,4 +115,30 @@ public boolean isAlive(int x, int y){
 	return false;
 
 
+}
+
+// void keyPressed(){
+// 		if (key == 'p') {
+// 			pauseNumber++;
+// 			if (pauseNumber==3) {
+// 				println("Hello");
+
+// 			}
+// 			noLoop();
+
+
+// 		}
+// 	}
+// 	void keyReleased(){
+// 		if (key == 'p') {
+// 		pauseNumber++;	}
+// 	}
+
+void keyPressed(){
+ if(key == 'p'){//p är toggle för pause
+    if(pause == false){pause = true;
+    	noLoop();}
+	else{pause = false;
+		loop();}     
+}
 }
