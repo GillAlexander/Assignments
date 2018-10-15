@@ -7,6 +7,7 @@ public class GameObject{
 	boolean alive = false;
 	int livingNeighbours;
 	int hasBeenAlive;
+	color c;
 	public GameObject (float x, float y, float size) {
 		this.x =x;
 		this.y = y;
@@ -15,7 +16,9 @@ public class GameObject{
 
 	void draw(){
 		if (alive) {
+			fill(c);
 			rect(x, y, size, size);
+			
 		}
 		
 	}
