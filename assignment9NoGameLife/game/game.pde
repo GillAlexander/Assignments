@@ -61,7 +61,7 @@ void draw(){
 			cells[x][y].draw();
 			
 
-		}	
+		}
 	}
 
 //Ta reda på hur många grannar som finns runt objektet levande och döda
