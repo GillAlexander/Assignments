@@ -13,22 +13,22 @@ void keyPressed(){
 	}     
 }
 if (key == 'm') {
-	changeFrameRate+= 1;
-	println(changeFrameRate);
+	changeScreenFrameRate+= 1;
+	println(changeScreenFrameRate);
 }
 if (key == 'n') {
-	changeFrameRate-= 1;
-	println(changeFrameRate);
+	changeScreenFrameRate-= 1;
+	println(changeScreenFrameRate);
 }
 if (key == 'o') {
-	println(changeFrameRate);
+	println(changeScreenFrameRate);
 }
 }
 void keyReleased(){
 	if (key == 'm') {
-	changeFrameRate+=0;
+	changeScreenFrameRate+=0;
 }
 	if (key == 'n') {
-		changeFrameRate-=0;
+		changeScreenFrameRate-=0;
 	}
 }

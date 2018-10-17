@@ -18,19 +18,15 @@ GameObject cells[][];
 float cellSize = 10;
 int numberOfColumns;
 int numberOfRows;
-int fillPercentage = 20;
-int number;
+int screenFillPercentage = 20;
 boolean pause = false;
 boolean p = false;
-int changeFrameRate = 2;
-float tpf;
+int changeScreenFrameRate = 2;
 float frameTime;
 float time;
 float currentTime;
-int objectColor;
 public void setup(){
 	
-	tpf = 1f / 60f;
 	
 
 	//Delar upp skärmen i rader och kolumner beroende hur många pixlar cellSize är
@@ -46,7 +42,7 @@ public void setup(){
 			cells[y][x] = new GameObject(x * cellSize, y * cellSize, cellSize);
 
 			
-			if (random(0, 100) < fillPercentage) {
+			if (random(0, 100) < screenFillPercentage) {
 				cells[y][x].alive = true;
 			}
 			if (cells[y][x].alive == false) {
@@ -69,65 +65,20 @@ public void setup(){
 public void draw(){
 	background(0);
 
-	frameRate(changeFrameRate);
 	currentTime = millis();
 	frameTime = currentTime - time;
 	frameTime = frameTime * 0.001f;
-	// println(frameTime);
-	println(frameRate);
+	frameRate(changeScreenFrameRate);
 
-
-
-	//Rita ut objekten ifall objektet är Alive
+	drawGameOnScreen();
+setColorOnCells();
 	for (int y = 0; y < numberOfRows; ++y ) {
 		for (int x = 0; x < numberOfColumns; ++x ) {
-		cells[x][y].draw();
-		
-		
-		
-		cells[x][y].c = color(random(0,255), random(0,255), random(0,255));
+			cells[x][y].draw();
+			
 
-		if (cells[x][y].x <= 125 && cells[x][y].y <= 125) {
-			cells[x][y].c = color(255, 0,0);
-		}
-		if (cells[x][y].x >= 175 && cells[x][y].y >= 175) {
-			cells[x][y].c = color(255, 255,0);
-		}
+		}	
 	}
-}	
-
-
-
-// if (cells[x][y].x >= 50 || cells[x][y].x <= 75 
-// 		 && cells[x][y].y >= 75 || cells[x][y].y <= 100) {
-// 			// for (int z = 0; z <= 50; ++z) {
-// 			// }
-// 			cells[x][y].c = color(255, 0, 255);
-// 		}
-
-
-
-
-// if (cells[x][y].x <= 50 && cells[x][y].y <= 50) {
-			
-// 			cells[x][y].c = color(100, 100, 100);
-// 			// for (int z = 0; z <= 50; ++z) {
-// 			// 	cells[z][z].c = color(255, 0, 0);
-// 			// }
-// 			// for (int q = 0; q <= 50; ++q) {
-// 			// 	cells[q][q].c = color(255, 255, 0);
-// 			// }
-// 			// for (int b = 0; b <= 50; ++b) {
-// 			// 	cells[x][y].c = color(0, 0, 255);
-// 			// }
-// 			// objectColor = color(100, 100, 100);
-			
-// 			// objectColor = color(random(0,255), random(0,255), random(0,255));
-// 		}
-
-
-
-
 
 //Ta reda på hur många grannar som finns runt objektet levande och döda
 	for (int y = 0; y < numberOfRows; ++y ) {
@@ -168,6 +119,26 @@ public int checkNeighbours(int x, int y){
 	return grannar;
 }
 
+public void drawGameOnScreen(){
+	
+}
+
+public void setColorOnCells(){
+	for (int y = 0; y < numberOfRows; ++y ) {
+		for (int x = 0; x < numberOfColumns; ++x ) {
+			cells[x][y].c = color(random(0,255), random(0,255), random(0,255));
+
+			if (cells[x][y].x <= 125 && cells[x][y].y <= 125) {
+				cells[x][y].c = color(255, 0,0);
+			}
+			if (cells[x][y].x >= 175 && cells[x][y].y >= 175) {
+				cells[x][y].c = color(255, 255,0);
+			}
+		}	
+	}
+}
+
+
 public boolean isAlive(int x, int y){
 	if (cells[x][y].livingNeighbours < 2) {
 		return false;
@@ -184,25 +155,36 @@ public boolean isAlive(int x, int y){
 	}
 	return false;
 }
-// void mouseClicked(){
-// 	if (cells[mouseX][mouseY].alive = false) {
-// 		cells[mouseX][mouseY].alive = true;
-// 	}
-		
-// }
 
-// class Alive{
-	
-// 	Alive(){
-// 	if (random(0, 100) < fillPercentage) {
-// 				cells[x][y].alive = true;
-// 			}
-// 	}
-// 	Alive(){
-		
-		
-// 	}
-// }
+
+
+// if (cells[x][y].x >= 50 || cells[x][y].x <= 75 
+// // 		 && cells[x][y].y >= 75 || cells[x][y].y <= 100) {
+// 			// for (int z = 0; z <= 50; ++z) {
+// 			// }
+// 			cells[x][y].c = color(255, 0, 255);
+// 		}
+
+
+
+
+// if (cells[x][y].x <= 50 && cells[x][y].y <= 50) {
+			
+// 			cells[x][y].c = color(100, 100, 100);
+// 			// for (int z = 0; z <= 50; ++z) {
+// 			// 	cells[z][z].c = color(255, 0, 0);
+// 			// }
+// 			// for (int q = 0; q <= 50; ++q) {
+// 			// 	cells[q][q].c = color(255, 255, 0);
+// 			// }
+// 			// for (int b = 0; b <= 50; ++b) {
+// 			// 	cells[x][y].c = color(0, 0, 255);
+// 			// }
+// 			// objectColor = color(100, 100, 100);
+			
+// 			// objectColor = color(random(0,255), random(0,255), random(0,255));
+// 		}
+
 public void mouseLocation(){
 	cells[mouseX][mouseY].alive = isAlive(mouseX,mouseY);
 }
@@ -218,23 +200,23 @@ public void keyPressed(){
 	}     
 }
 if (key == 'm') {
-	changeFrameRate+= 1;
-	println(changeFrameRate);
+	changeScreenFrameRate+= 1;
+	println(changeScreenFrameRate);
 }
 if (key == 'n') {
-	changeFrameRate-= 1;
-	println(changeFrameRate);
+	changeScreenFrameRate-= 1;
+	println(changeScreenFrameRate);
 }
 if (key == 'o') {
-	println(changeFrameRate);
+	println(changeScreenFrameRate);
 }
 }
 public void keyReleased(){
 	if (key == 'm') {
-	changeFrameRate+=0;
+	changeScreenFrameRate+=0;
 }
 	if (key == 'n') {
-		changeFrameRate-=0;
+		changeScreenFrameRate-=0;
 	}
 }
 public class GameObject{
