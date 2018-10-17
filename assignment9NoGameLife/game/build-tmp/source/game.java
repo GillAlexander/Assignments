@@ -36,7 +36,7 @@ public void setup(){
 	for (int y = 0; y < numberOfRows; ++y) {
 		for (int x = 0; x < numberOfColumns; ++x) {
 
-			cells[y][x] = new GameObject(x, y, cellSize);		//Skapa gameObject vid plats [y][x] med storlek cellSize
+			cells[y][x] = new GameObject(x, y, cellSize);	//Skapa gameObject vid plats [y][x] med storlek cellSize
 
 			if (random(0, 100) < screenFillPercentage) {
 				cells[y][x].alive = true;
@@ -70,15 +70,14 @@ public void drawGameOnScreen(){
 			cells[x][y].draw();
 		}
 	}
-	
 }
 
 
 public void setColorOnCells(){
 	for (int y = 0; y < numberOfRows; ++y ) {
 		for (int x = 0; x < numberOfColumns; ++x ) {
-
 			// cells[x][y].c = color(random(0,255), random(0,255), random(0,255));
+			
 			if (cells[x][y].x <= mouseX && cells[x][y].y <= mouseY) {
 				cells[x][y].c = color(225, 0,30);
 			}
@@ -123,14 +122,11 @@ public boolean isAlive(int x, int y){
 	 if(cells[x][y].alive) {
 		return true;
 	}
-	
+											//Om cellen inte lever
 	if (cells[x][y].livingNeighbours == 3 && !(cells[x][y].alive)) {
 		return true;
 	}
 	return false;
-}
-public void mouseLocation(){
-	cells[mouseX][mouseY].alive = isAlive(mouseX,mouseY);
 }
 boolean pause = false;
 boolean p = false;
@@ -162,12 +158,12 @@ public void keyPressed(){
 }
 public void keyReleased(){
 	if (key == 'm') {
-	changeScreenFrameRate+=0;
+		changeScreenFrameRate+=0;
 	}
 	if (key == 'n') {
 		changeScreenFrameRate-=0;
 	}
-	}
+}
 public int checkNeighbours(int x, int y){	//Räknar ut alla grannar, levande och döda
 	int neighbours = 0;
 	for (int i = -1; i <= 1; i++) {		//Kollar ifall objektet är innanför skärmen på X axeln
@@ -190,7 +186,6 @@ public int checkNeighbours(int x, int y){	//Räknar ut alla grannar, levande och
 	return neighbours;
 }
 public class GameObject{
-
 	float x;
 	float y;
 	float size;
