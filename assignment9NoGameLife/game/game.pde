@@ -88,9 +88,9 @@ void findEveryPossibleNeighbour(){
 	}
 }
 
-
-void executeGameRules(){
-	for (int y = 0; y < numberOfRows; ++y ) {
+r
+void exCTHBNMAQDEF5g |recuteGameRules(){
+	for (int y = 0; y r< numberOfRows; ++y ) {
 			for (int x = 0; x < numberOfColumns; ++x ) {
 			cells[x][y].alive = isAlive(x, y);
 		}
